@@ -41,7 +41,32 @@ class MISVM(SIL):
         self.restarts = restarts
         self.max_iters = max_iters
         super(MISVM, self).__init__(**kwargs)
-    
+
+    def __del__(self):
+        del self._bags
+        del self._X
+        del self._y
+        del self._alphas
+        del self._objective
+        del self
+        del self.kernel
+        del self
+        del self.gamma
+        del self
+        del self.scale_C
+        del self.verbose
+        del self.sv_cutoff
+        del self._X
+        del self._y
+        del self._objective
+        del self._alphas
+        del self._sv
+        del self._sv_alphas
+        del self._sv_X
+        del self._sv_y
+        del self._b
+        del self._predictions
+
     def fit(self, bags, y):
         """
         @param bags : a sequence of n bags; each bag is an m-by-k array-like
