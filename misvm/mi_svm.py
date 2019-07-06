@@ -1,6 +1,7 @@
 """
 Implements mi-SVM and MI-SVM
 """
+import gc
 from __future__ import print_function, division
 import numpy as np
 from random import uniform
@@ -66,6 +67,7 @@ class MISVM(SIL):
         del self._sv_y
         del self._b
         del self._predictions
+        gc.collect()
 
     def fit(self, bags, y):
         """
